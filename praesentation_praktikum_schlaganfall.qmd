@@ -1,0 +1,13 @@
+---
+title: "praesentation_praktikum_schlaganfall"
+format: revealjs
+output: reveal::revealjs_presentation
+---
+
+```{r}
+source("source_all.R")
+```
+
+Das ist ein test
+
+
