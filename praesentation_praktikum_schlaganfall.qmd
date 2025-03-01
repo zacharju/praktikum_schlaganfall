@@ -5,9 +5,15 @@ output: reveal::revealjs_presentation
 ---
 
 ```{r}
+#Sourcen des gesamten Codes durch Sourcen von source_all.R 
 source("source_all.R")
 ```
 
-Das ist ein test
+Dies ist ein Test
+
+```{r}
+#Laden der Daten
+data <- load_data()
+```
 
 
