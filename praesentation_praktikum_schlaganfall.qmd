@@ -16,3 +16,8 @@ data <- load_data()
 ```
 
 
+```{r}
+#Bereinigung der wichigsten Spalten
+cleaned <- clean_data(data)
+head(cleaned)
+```
