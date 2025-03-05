@@ -1,7 +1,6 @@
 ---
 title: "praesentation_praktikum_schlaganfall"
-format: revealjs
-output: reveal::revealjs_presentation
+format: pptx
 ---
 
 ```{r}
