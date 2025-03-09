@@ -6,6 +6,5 @@ lapply(list.files(
   ignore.case = TRUE,
   full.names = TRUE,
   recursive = TRUE
-),
-source
+) , function(f) source(f, encoding = "UTF-8")
 )
