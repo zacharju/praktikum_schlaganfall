@@ -16,6 +16,6 @@ treatment_efficacy <- function(data = cleaned) {
       y = "Proportion der Patienten mit erneutem Schlaganfall"
     ) +
     theme_minimal() +
-    scale_y_continuous(labels = percent) +
+    scale_y_continuous(labels = scales :: percent) +
     theme(legend.position = "none")
 }
