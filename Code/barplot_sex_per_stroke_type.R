@@ -5,7 +5,7 @@ barplot_sex_per_stroke_type <- function(data = cleaned) {
          x = "Schlaganfalltyp", y = "Anteil", fill = "Geschlecht") +
     coord_flip() +
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorogisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Unbestimmt", "Not a Stroke" = "Kein Schlaganfall")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Unbestimmt", "Not a Stroke" = "Kein Schlaganfall")) +
     scale_fill_manual(
       values = c("M" = "#1054E7", "F" = "#E71010"),
       labels = c("M" = "Männlich", "F" = "Weiblich")
