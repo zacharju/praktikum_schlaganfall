@@ -1,23 +1,164 @@
 ---
-title: "praesentation_praktikum_schlaganfall"
-format: pptx
+title: "Grundlegendes Praxisprojekt: Schlaganfälle"
+author: "Hanan Loulou, Nika Curcija, Julian Zacharias"
+date: 21 mar 2025
+institute: "Dr. Fabian Scheipl"
+format: 
+  revealjs:
+    css: custom.css
+    logo: "Bilder/LMU_Logo.svg"
+    transition: slide
+    slide-number: c
 ---
 
-```{r}
+```{r setup, include=FALSE}
 #Sourcen des gesamten Codes durch Sourcen von source_all.R 
 source("source_all.R")
 ```
+## Agenda
 
-Dies ist ein Test
+1.  Theoretischer Hintergrund
+2.  Vorstellung des Datensatzes
+3.  Datenanalyse
+4.  Zusammenfassung und Diskussion
+
+## Agenda
+
+::: incremental
+[1.  Theoretischer Hintergrund]{style="color:black;"}
+
+[2.  Vorstellung des Datensatzes]{style="color:lightgrey;"}
+
+[3.  Datenanalyse]{style="color:lightgrey;"}
+
+[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+:::
+
+## Theoretischer Hintergrund
+
+**Schlaganfall**:
+Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung von Hirngewebe führt und neurologische Ausfälle zur Folge hat.
+
+
+![](Bilder/schlaganfall-arten.jpg){fig-align=center}
+
+## Agenda
+
+::: incremental
+[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+
+[2.  Vorstellung des Datensatzes]{style="color:black;"}
+
+[3.  Datenanalyse]{style="color:lightgrey;"}
+
+[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+:::
+## Vorstellung des Datensatzes
+
+**International Stroke Trial Dataset**
+
+::: { .incremental }
+- 19.435 Patienten aus 36 Ländern
+- Längsschnittdaten
+- 113 Variablen
+- Zeitraum: 1991-1996
+- Multizentrische Studie: 466 Krankenhäuser
+- Beobachtungszeitraum: 6 Monate
+- Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
+:::
+
+---
+
+**PROBE-Design**: Prospective Randomized Open Blinded Endpoint
+
+1. **Prospektiv**: 
+Beobachtung der Teilnehmer über einen bestimmten Zeitraum
+
+
+2. **Randomisiert**: 
+Zufällige Einteilung der Teilnehmer in Behandlungsgruppen
+
+
+
+3. **Open**: 
+Behandlungsart ist Forschern und Teilnehmern bekannt
+
+
+4. **Blinded Endpoint**:
+Endpunkte (Erfolg oder Misserfolg der Behandlung) können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
+
+
+
+---
+## Agenda
+
+::: incremental
+[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+
+[2.  Vorstellung des Datensatzes]{style="color:lightgray;"}
+
+[3.  Datenanalyse]{style="color:black;"}
+
+[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+:::
+
+
+## 
+
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+**Leitfrage 1: Welche Arten von Schlaganfällen treten auf und wie sind diese in der Gesellschaft verteilt?**
+:::
+
+
+
+
+##
+
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+**Leitfrage 2: Unterscheiden sich die Schlaganfallkategorien hinsichtlich Alter, Geschlecht und anderen ausgewählten Variablen?**
+:::
+
+
+##
+
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+**Leitfrage 3: Wie häufig sind wiederkehrende Schlaganfälle und wie unterscheiden sich diese hinsichtlich verschiedener Variablen?**
+:::
+
+
+
+
 
 ```{r}
 #Laden der Daten
-data <- load_data()
-```
-
-
-```{r}
+#data <- load_data()
 #Bereinigung der wichigsten Spalten
-cleaned <- clean_data(data)
-head(cleaned)
+#cleaned <- clean_data(data)
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
