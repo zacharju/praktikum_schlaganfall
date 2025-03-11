@@ -7,7 +7,7 @@ barplot_stroke_types <- function(data = cleaned) {
     labs(title = "Häufigkeit der Schlaganfalltypen",
          x = "Schlaganfalltyp",
          y = "Anzahl der Patienten") +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorogisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Unbestimmt", "Not a Stroke" = "Kein Schlaganfall")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Unbestimmt", "Not a Stroke" = "Kein Schlaganfall")) +
     scale_y_continuous(
       breaks = seq(0, 20000, by = 2500),  
       labels = seq(0, 20000, by = 2500), 

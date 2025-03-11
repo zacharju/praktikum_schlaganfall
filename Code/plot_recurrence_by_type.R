@@ -11,7 +11,7 @@ plot_recurrence_by_type <- function(data = cleaned) {
     labs(title = "Häufigkeit wiederkehrender Schlaganfälle nach Typ",
          x = "Typ des wiederkehrenden Schlaganfalls",
          y = "Anzahl der Patienten") +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorogisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
     scale_fill_viridis(discrete = TRUE, alpha = 0.85) +
     scale_y_continuous(
       breaks = seq(0, 225, by = 25),

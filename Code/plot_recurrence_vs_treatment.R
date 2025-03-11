@@ -17,7 +17,7 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
       y = "Anzahl der Patienten",
       fill = "Schlaganfalltyp"
     ) +
-      scale_fill_viridis(discrete = TRUE, alpha = 0.85, labels = c("Haemorrhagic Stroke" = "Hämorogisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
+      scale_fill_viridis(discrete = TRUE, alpha = 0.85, labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
     scale_x_discrete(labels = c("No Treatment" = "Keine Medikation")) +
     scale_y_continuous(
         breaks = seq(0, 175, by = 25),  
