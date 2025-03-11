@@ -27,7 +27,7 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
     theme_minimal() + 
     theme(
       legend.position = c(0.9, 0.88),
-      plot.title = element_text(face = "bold", size = 13, hjust = 0),
+      plot.title = element_text(face = "bold", size = 15, hjust = 0.5),
       axis.title = element_text(face = "bold", size =10), 
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank())

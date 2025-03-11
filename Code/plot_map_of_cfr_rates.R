@@ -79,7 +79,7 @@ ggplot() +
   theme_bw() +
   theme(
     panel.grid.major = element_line(color = gray(.5), linetype = "dashed", linewidth = 0.5),
-    plot.title = element_text(face = "bold", size = 15)
+    plot.title = element_text(face = "bold", size = 15, hjust = 0.5)
   )
 
 }
