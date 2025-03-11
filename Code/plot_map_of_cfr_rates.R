@@ -15,7 +15,7 @@ country_lookup <- tibble(
   
 #Changing all values in the COUNTRY variable with the tibble created above
   
-cleaned$COUNTRY <- vapply(cleaned$CNTRYNUM, function(x) {
+data$COUNTRY <- vapply(data$CNTRYNUM, function(x) {
   i <- which(country_lookup$CNTRYNUM == x)
     if (length(i) == 1) {
       return(country_lookup$COUNTRY[i])
@@ -28,7 +28,7 @@ cleaned$COUNTRY <- vapply(cleaned$CNTRYNUM, function(x) {
 world <- ne_countries(scale = 110, type = "countries", returnclass = "sf")
   
 #Filtering relevant countries
-countries_sf <- world[world$name_long %in% unique(cleaned$COUNTRY), ]
+countries_sf <- world[world$name_long %in% unique(data$COUNTRY), ]
   
   
 # Calculating midpoints for every country
@@ -50,7 +50,7 @@ middle <- bind_rows(middle, manual_coords)
 
 #Creating a table with the proportion of people who have died of stroke after 6 months
   
-cfr_per_country <- cleaned |>
+cfr_per_country <- data |>
   group_by(COUNTRY) |>
   summarise(deaths = sum(FDEADC %in% c(1,2,3)), #Patients that dies after 6 months of stroke
             total_cases = n(),
@@ -101,6 +101,15 @@ alternative_cfr_rates <- function(data = cleaned) {
                        "Rumänien", "Singapur", "Slowakei", "Slowenien", "Südafrika", "Spanien", 
                        "Sri Lanka", "Schweden", "Schweiz", "Thailand", "Türkei", "Vereinigtes Königreich", "Vereinigte Staaten")
   )
+  
+  #Creating a table with the proportion of people who have died of stroke after 6 months
+  
+  cfr_per_country <- data |>
+    group_by(COUNTRY) |>
+    summarise(deaths = sum(FDEADC %in% c(1,2,3)), #Patients that dies after 6 months of stroke
+              total_cases = n(),
+              cfr_rate = deaths/total_cases) |>
+    arrange(desc(cfr_rate))
   
   #Joining the tibble with cfr_per_country to get the German names
   
