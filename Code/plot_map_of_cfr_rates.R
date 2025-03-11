@@ -86,6 +86,28 @@ ggplot() +
 #Alternative visualisation: bar plot
 #Creating a lookup tibble to change the names to German names
 alternative_cfr_rates <- function(data = cleaned) {
+  country_lookup <- tibble(
+    COUNTRY = c("Albania", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", 
+                "Czech Republic", "Denmark", "Ireland", "Finland", "France", "Georgia", "Germany", 
+                "Greece", "Hong Kong", "Hungary", "India", "Indonesia", "Israel", "Italy", "Japan", 
+                "Latvia", "Malaysia", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", 
+                "Romania", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", 
+                "Sri Lanka", "Sweden", "Switzerland", "Thailand", "Turkey", "United Kingdom", "United States"),
+    CNTRYNUM = c(43, 29, 1, 2, 3, 42, 4, 5, 6, 7, 8, 9, 10, 11, 32, 12, 31, 30, 36, 37, 41, 
+                 13, 14, 38, 39, 40, 15, 16, 17, 18, 19, 33, 34, 44, 20, 21, 22, 23, 24, 25, 26, 35, 27, 28)
+  )
+  
+  #Changing all values in the COUNTRY variable with the tibble created above
+  
+  data$COUNTRY <- vapply(data$CNTRYNUM, function(x) {
+    i <- which(country_lookup$CNTRYNUM == x)
+    if (length(i) == 1) {
+      return(country_lookup$COUNTRY[i])
+    } else {
+      return(NA_character_)
+    }
+  }, character(1))
+  
   german_country_names <- tibble(
     COUNTRY = c("Albania", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", 
                 "Czech Republic", "Denmark", "Ireland", "Finland", "France", "Georgia", "Germany", 
