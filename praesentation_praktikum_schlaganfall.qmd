@@ -2,7 +2,7 @@
 title: "Grundlegendes Praxisprojekt: Schlaganfälle"
 author: "Hanan Loulou, Nika Curcija, Julian Zacharias"
 date: 21 mar 2025
-institute: "Dr. Fabian Scheipl"
+institute: "Dr. Fabian Scheipl, Mona Niethammer, Johannes Piller, Helen Alber"
 format: 
   revealjs:
     css: custom.css
@@ -14,7 +14,17 @@ format:
 ```{r setup, include=FALSE}
 #Sourcen des gesamten Codes durch Sourcen von source_all.R 
 source("source_all.R")
+
 ```
+
+```{r}
+#Laden der Daten
+ist_data <- load_data()
+#Bereinigung der wichigsten Spalten
+cleaned <- clean_data(ist_data)
+```
+
+
 ## Agenda
 
 1.  Theoretischer Hintergrund
@@ -105,35 +115,80 @@ Endpunkte (Erfolg oder Misserfolg der Behandlung) können nicht von Forschern un
 
 ## 
 
-::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
 **Leitfrage 1: Welche Arten von Schlaganfällen treten auf und wie sind diese in der Gesellschaft verteilt?**
 :::
 
+##
 
+```{r}
+barplot_stroke_types()
+```
 
 
 ##
 
-::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
 **Leitfrage 2: Unterscheiden sich die Schlaganfallkategorien hinsichtlich Alter, Geschlecht und anderen ausgewählten Variablen?**
 :::
 
+##
+
+```{r}
+boxplots_age_distr_per_stroke_type()
+```
 
 ##
 
-::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh;"}
+```{r}
+barplot_sex_per_stroke_type()
+```
+##
+
+::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
 **Leitfrage 3: Wie häufig sind wiederkehrende Schlaganfälle und wie unterscheiden sich diese hinsichtlich verschiedener Variablen?**
 :::
 
+##
 
+```{r}
+plot_recurrence_overall()
+```
 
+##
+
+```{r}
+plot_recurrence_by_age()
+```
+
+##
+
+```{r}
+plot_recurrence_by_type()
+```
+##
 
 
 ```{r}
-#Laden der Daten
-#data <- load_data()
-#Bereinigung der wichigsten Spalten
-#cleaned <- clean_data(data)
+plot_recurrence_by_age_and_typ()
+```
+##
+
+```{r}
+treatment_efficacy()
+```
+
+
+##
+
+```{r}
+plot_recurrence_vs_treatment()
+```
+
+##
+
+```{r}
+plot_outcome_by_medication()
 ```
 
 
@@ -148,7 +203,33 @@ Endpunkte (Erfolg oder Misserfolg der Behandlung) können nicht von Forschern un
 
 
 
+##
 
+
+```{r}
+case_fatality_rate_per_country()
+```
+## Agenda
+
+::: incremental
+[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+
+[2.  Vorstellung des Datensatzes]{style="color:lightgray;"}
+
+[3.  Datenanalyse]{style="color:lightgrey;"}
+
+[4.  Zusammenfassung und Diskussion]{style="color:black;"}
+:::
+
+## Zusammenfassung
+
+- Patienten, die mit **Aspirin** behandelt wurden, hatten ein geringeres Risiko für einen zweiten Schlaganfall.  
+- Im Gegensatz dazu trat bei **Heparin**-Patienten häufiger ein erneuter Schlaganfall auf.  
+- Der Datensatz zeigt eine **auffällige Altersverteilung**, mit überwiegend älteren Patienten.  
+- Unabhängig von der Medikation bleibt ein hoher Anteil der Patienten nach der Behandlung auf Unterstützung angewiesen.
+
+
+## Diskussion
 
 
 

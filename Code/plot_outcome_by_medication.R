@@ -24,7 +24,7 @@ plot_outcome_by_medication <- function(data = cleaned) {
     theme_minimal() + 
     theme(
       legend.position = c(0.92, 0.855),
-      plot.title = element_text(face = "bold", size = 5, hjust = 0.5),
+      plot.title = element_text(face = "bold", size = 15, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 10),
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank()
