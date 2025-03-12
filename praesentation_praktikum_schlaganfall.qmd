@@ -212,10 +212,13 @@ case_fatality_rate_per_country()
 
 ## Zusammenfassung
 
-- Patienten, die mit **Aspirin** behandelt wurden, hatten ein geringeres Risiko für einen zweiten Schlaganfall.  
-- Im Gegensatz dazu trat bei **Heparin**-Patienten häufiger ein erneuter Schlaganfall auf.  
-- Der Datensatz zeigt eine **auffällige Altersverteilung**, mit überwiegend älteren Patienten.  
-- Unabhängig von der Medikation bleibt ein hoher Anteil der Patienten nach der Behandlung auf Unterstützung angewiesen.
+
+```{r}
+#- Patienten, die mit **Aspirin** behandelt wurden, hatten ein geringeres Risiko für einen zweiten Schlaganfall.  
+#- Im Gegensatz dazu trat bei **Heparin**-Patienten häufiger ein erneuter Schlaganfall auf.  
+#- Der Datensatz zeigt eine **auffällige Altersverteilung**, mit überwiegend älteren Patienten.  
+#- Unabhängig von der Medikation bleibt ein hoher Anteil der Patienten nach der Behandlung auf Unterstützung angewiesen.
+```
 
 
 ## Diskussion
