@@ -70,9 +70,9 @@ Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung
 ::: { .incremental }
 - 19.435 Patienten aus 36 Ländern
 - Längsschnittdaten
-- 113 Variablen
+- 112 Variablen
 - Zeitraum: 1991-1996
-- Multizentrische Studie: 466 Krankenhäuser
+- Multizentrische Studie: 467 Krankenhäuser
 - Beobachtungszeitraum: 6 Monate
 - Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
 :::
@@ -190,17 +190,6 @@ plot_recurrence_vs_treatment()
 ```{r}
 plot_outcome_by_medication()
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 
 ##
