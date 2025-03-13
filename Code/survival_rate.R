@@ -28,5 +28,5 @@ survival_rate <- function(data = cleaned) {
       axis.text.x = element_text(size = 15),
       axis.text.y = element_text(size = 14),
     ) +
-    scale_color_viridis_d(option = "plasma")
+    scale_color_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"))
 }
