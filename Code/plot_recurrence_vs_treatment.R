@@ -7,11 +7,6 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
 
     ggplot(filtered, aes(x = treatment, fill = recurring.stroke.type)) +
     geom_bar(position = "dodge", width = 0.8, alpha = 0.85) +
-    #geom_text(stat = "count", 
-              #aes(label = sprintf("%d (%.1f%%)", ..count.., ..count../tapply(..count.., ..x.., sum)[..x..] * 100)), 
-              #position = position_dodge(width = 0.9),  
-              #vjust = -0.5, 
-              #size = 3) +  
     labs(
       title = "Typen von wiederkehrenden Schlaganfällen je nach Therapie",
       x = "Medikation",
@@ -32,7 +27,6 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
       ) +
     theme_minimal() + 
     theme(
-      #legend.position = c(0.9, 0.83),
       plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 15), 
       axis.text.x = element_text(size = 14),
