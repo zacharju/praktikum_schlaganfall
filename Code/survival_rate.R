@@ -19,7 +19,7 @@ survival_rate <- function(data = cleaned) {
     ungroup() |>   
   ggplot(aes(x = FDEADD, y = survival_rate, colour = treatment)) +
     geom_line(size = 1) +
-    labs(x = "Tage seit Randomisierung", y = "Überlebesrate") +
+    labs(x = "Tage seit Randomisierung", y = "Überlebensrate") +
     scale_y_continuous(labels = scales :: percent, expand = expansion(mult = c(0, 0.05))) +
     theme_minimal() +
     theme(
