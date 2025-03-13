@@ -9,11 +9,9 @@ clean_data <- function(data) {
     mutate(stroke.type = str_replace_all(stroke.type, c(
       "DDIAGISC" = "Ischaemic Stroke",
       "DDIAGHA" = "Haemorrhagic Stroke",
-      "DDIAGUN" = "Indeterminate Stroke",
-      "DNOSTRK" = "Not a Stroke"
+      "DDIAGUN" = "Unknown Stroke",
+      "DNOSTRK" = NA_character_
     )))
-  
-  #Erstellen der Spalten recurring, recurring.stroke.type und date.of.recurrence
   cleaned <- cleaned |>
     mutate(
       recurring = ifelse(rowSums(cleaned[, c("DRSISC", "DRSH", "DRSUNK")] == "Y") > 0, "Yes", "No"),
@@ -22,7 +20,8 @@ clean_data <- function(data) {
                                             ifelse(DRSUNK == "Y", "Unknown Stroke", NA))),
       date.of.recurrence = ifelse(DRSISC == "Y", DRSISCD,
                                   ifelse(DRSH == "Y", DRSHD,
-                                         ifelse(DRSUNK == "Y", DRSUNKD, NA))))
+                                         ifelse(DRSUNK == "Y", DRSUNKD, NA
+                                                ))))
   cleaned <- cleaned |> 
     mutate(DASP14 = toupper(DASP14)) |> 
     mutate(
