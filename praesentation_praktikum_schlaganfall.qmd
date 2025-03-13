@@ -81,6 +81,8 @@ Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung
 
 **PROBE-Design**: Prospective Randomized Open Blinded Endpoint
 
+:::{ .incremental}
+
 1. **Prospektiv**: 
 Beobachtung der Teilnehmer über einen bestimmten Zeitraum
 
@@ -95,8 +97,9 @@ Behandlungsart ist Forschern und Teilnehmern bekannt
 
 
 4. **Blinded Endpoint**:
-Endpunkte (Erfolg oder Misserfolg der Behandlung) können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
+Endpunkte können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
 
+:::
 
 
 ---
