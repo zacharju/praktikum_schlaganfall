@@ -1,4 +1,4 @@
-case_fatality_rate_per_country <- function(data = cleaned) {
+case_fatality_per_country <- function(data = cleaned) {
   
   # Creating a tibble that maps country and country code
   country_lookup <- tibble(
@@ -25,14 +25,14 @@ case_fatality_rate_per_country <- function(data = cleaned) {
   # Loading world map data
   world <- ne_countries(scale = 110, type = "countries", returnclass = "sf")
   
-  # Creating a table with CFR rates
+  # Creating a table with case fatality rates
   cfr_per_country <- data |>
     filter(!is.na(stroke.type)) |>
     group_by(COUNTRY) |>
     summarise(deaths = sum(FDEAD == "Y"), # Patients who died after 6 months
               total_cases = n(),
-              cfr_rate = deaths / total_cases) |>
-    arrange(desc(cfr_rate))
+              cfr = deaths / total_cases) |>
+    arrange(desc(cfr))
   
   # Merging CFR data with world map data
   countries_sf <- world |>
@@ -40,10 +40,10 @@ case_fatality_rate_per_country <- function(data = cleaned) {
   
   # Plotting the map with colored countries
   
-  quantiles <- quantile(cfr_per_country$cfr_rate, probs = seq(0, 1, length.out = 8))
+  quantiles <- quantile(cfr_per_country$cfr, probs = seq(0, 1, length.out = 8))
   labels <- round(quantiles, 2)
   ggplot() + 
-    geom_sf(data = countries_sf, aes(fill = cfr_rate), color = "grey30") +
+    geom_sf(data = countries_sf, aes(fill = cfr), color = "grey30") +
     scale_fill_stepsn(
       colors = viridis::mako(100, direction = -1), 
       na.value = "white", 
@@ -64,7 +64,7 @@ case_fatality_rate_per_country <- function(data = cleaned) {
     )
 }
 
-alternative_cfr_rates <- function(data = cleaned) {
+alternative_cf <- function(data = cleaned) {
   country_lookup <- tibble(
     COUNTRY = c("Albania", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", 
                 "Czech Republic", "Denmark", "Ireland", "Finland", "France", "Georgia", "Germany", 
@@ -108,10 +108,10 @@ alternative_cfr_rates <- function(data = cleaned) {
   cfr_per_country <- data |>
     filter(!is.na(stroke.type)) |>
     group_by(COUNTRY) |>
-    summarise(deaths = sum(FDEAD == "Y"), #Patients that dies after 6 months of stroke
+    summarise(deaths = sum(FDEAD == "Y"),
               total_cases = n(),
-              cfr_rate = deaths/total_cases) |>
-    arrange(desc(cfr_rate))
+              cfr = deaths/total_cases) |>
+    arrange(desc(cfr))
   
   #Joining the tibble with cfr_per_country to get the German names
   
@@ -121,7 +121,7 @@ alternative_cfr_rates <- function(data = cleaned) {
   
   #Plotting
   
-  ggplot(cfr_per_country, aes(x = reorder(COUNTRY, cfr_rate), y = cfr_rate)) +
+  ggplot(cfr_per_country, aes(x = reorder(COUNTRY, cfr), y = cfr)) +
     geom_col(fill = "steelblue") +  
     coord_flip() +
     scale_y_continuous(labels = scales::percent) +
@@ -132,5 +132,3 @@ alternative_cfr_rates <- function(data = cleaned) {
     ) + 
     theme_minimal()
 }
-alternative_cfr_rates(cleaned)
-case_fatality_rate_per_country(cleaned)
