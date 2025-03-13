@@ -201,6 +201,17 @@ plot_outcome_by_medication()
 ```{r}
 case_fatality_rate_per_country()
 ```
+
+
+##
+
+
+```{r}
+survival_rate()
+```
+
+
+
 ## Agenda
 
 ::: incremental
