@@ -24,7 +24,6 @@ ist_data <- load_data()
 cleaned <- clean_data(ist_data)
 ```
 
-
 ## Agenda
 
 1.  Theoretischer Hintergrund
@@ -35,86 +34,74 @@ cleaned <- clean_data(ist_data)
 ## Agenda
 
 ::: incremental
-[1.  Theoretischer Hintergrund]{style="color:black;"}
+[1. Theoretischer Hintergrund]{style="color:black;"}
 
-[2.  Vorstellung des Datensatzes]{style="color:lightgrey;"}
+[2. Vorstellung des Datensatzes]{style="color:lightgrey;"}
 
-[3.  Datenanalyse]{style="color:lightgrey;"}
+[3. Datenanalyse]{style="color:lightgrey;"}
 
-[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+[4. Zusammenfassung und Diskussion]{style="color:lightgray;"}
 :::
 
 ## Theoretischer Hintergrund
 
-**Schlaganfall**:
-Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung von Hirngewebe führt und neurologische Ausfälle zur Folge hat.
+**Schlaganfall**: Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung von Hirngewebe führt und neurologische Ausfälle zur Folge hat.
 
-
-![](Bilder/schlaganfall-arten.jpg){fig-align=center}
+![](Bilder/schlaganfall-arten.jpg){fig-align="center"}
 
 ## Agenda
 
 ::: incremental
-[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+[1. Theoretischer Hintergrund]{style="color:lightgray;"}
 
-[2.  Vorstellung des Datensatzes]{style="color:black;"}
+[2. Vorstellung des Datensatzes]{style="color:black;"}
 
-[3.  Datenanalyse]{style="color:lightgrey;"}
+[3. Datenanalyse]{style="color:lightgrey;"}
 
-[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+[4. Zusammenfassung und Diskussion]{style="color:lightgray;"}
 :::
+
 ## Vorstellung des Datensatzes
 
 **International Stroke Trial Dataset**
 
-::: { .incremental }
-- 19.435 Patienten aus 36 Ländern
-- Längsschnittdaten
-- 112 Variablen
-- Zeitraum: 1991-1996
-- Multizentrische Studie: 467 Krankenhäuser
-- Beobachtungszeitraum: 6 Monate
-- Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
+::: incremental
+-   19.435 Patienten aus 36 Ländern
+-   Längsschnittdaten
+-   112 Variablen
+-   Zeitraum: 1991-1996
+-   Multizentrische Studie: 467 Krankenhäuser
+-   Beobachtungszeitraum: 6 Monate
+-   Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
 :::
 
----
+------------------------------------------------------------------------
 
 **PROBE-Design**: Prospective Randomized Open Blinded Endpoint
 
-:::{ .incremental}
+::: incremental
+1.  **Prospektiv**: Beobachtung der Teilnehmer über einen bestimmten Zeitraum
 
-1. **Prospektiv**: 
-Beobachtung der Teilnehmer über einen bestimmten Zeitraum
+2.  **Randomisiert**: Zufällige Einteilung der Teilnehmer in Behandlungsgruppen
 
+3.  **Open**: Behandlungsart ist Forschern und Teilnehmern bekannt
 
-2. **Randomisiert**: 
-Zufällige Einteilung der Teilnehmer in Behandlungsgruppen
-
-
-
-3. **Open**: 
-Behandlungsart ist Forschern und Teilnehmern bekannt
-
-
-4. **Blinded Endpoint**:
-Endpunkte können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
-
+4.  **Blinded Endpoint**: Endpunkte können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
 :::
 
+------------------------------------------------------------------------
 
----
 ## Agenda
 
 ::: incremental
-[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+[1. Theoretischer Hintergrund]{style="color:lightgray;"}
 
-[2.  Vorstellung des Datensatzes]{style="color:lightgray;"}
+[2. Vorstellung des Datensatzes]{style="color:lightgray;"}
 
-[3.  Datenanalyse]{style="color:black;"}
+[3. Datenanalyse]{style="color:black;"}
 
-[4.  Zusammenfassung und Diskussion]{style="color:lightgray;"}
+[4. Zusammenfassung und Diskussion]{style="color:lightgray;"}
 :::
-
 
 ## 
 
@@ -122,110 +109,103 @@ Endpunkte können nicht von Forschern und Teilnehmern während der Studie beeinf
 **Leitfrage 1: Welche Arten von Schlaganfällen treten auf und wie sind diese in der Gesellschaft verteilt?**
 :::
 
-##
+## 
 
 ```{r}
 barplot_stroke_types()
 ```
 
-
-##
+## 
 
 ::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
 **Leitfrage 2: Unterscheiden sich die Schlaganfallkategorien hinsichtlich Alter, Geschlecht und anderen ausgewählten Variablen?**
 :::
 
-##
+## 
 
 ```{r}
 boxplots_age_distr_per_stroke_type()
 ```
 
-##
+## 
 
 ```{r}
 barplot_sex_per_stroke_type()
 ```
-##
+
+## 
 
 ::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
 **Leitfrage 3: Wie häufig sind wiederkehrende Schlaganfälle und wie unterscheiden sich diese hinsichtlich verschiedener Variablen?**
 :::
 
-##
+## 
 
 ```{r}
 plot_recurrence_overall()
 ```
 
-##
+## 
 
 ```{r}
 plot_recurrence_by_age()
 ```
 
-##
+## 
 
 ```{r}
 plot_recurrence_by_type()
 ```
-##
 
+## 
 
 ```{r}
 plot_recurrence_by_age_and_typ()
 ```
-##
+
+## 
 
 ```{r}
 treatment_efficacy()
 ```
 
-
-##
+## 
 
 ```{r}
 plot_recurrence_vs_treatment()
 ```
 
-##
+## 
 
 ```{r}
 plot_outcome_by_medication()
 ```
 
-
-##
-
+## 
 
 ```{r}
 case_fatality_rate_per_country()
 ```
 
-
-##
-
+## 
 
 ```{r}
 survival_rate()
 ```
 
-
-
 ## Agenda
 
 ::: incremental
-[1.  Theoretischer Hintergrund]{style="color:lightgray;"}
+[1. Theoretischer Hintergrund]{style="color:lightgray;"}
 
-[2.  Vorstellung des Datensatzes]{style="color:lightgray;"}
+[2. Vorstellung des Datensatzes]{style="color:lightgray;"}
 
-[3.  Datenanalyse]{style="color:lightgrey;"}
+[3. Datenanalyse]{style="color:lightgrey;"}
 
-[4.  Zusammenfassung und Diskussion]{style="color:black;"}
+[4. Zusammenfassung und Diskussion]{style="color:black;"}
 :::
 
 ## Zusammenfassung
-
 
 ```{r}
 #- Patienten, die mit **Aspirin** behandelt wurden, hatten ein geringeres Risiko für einen zweiten Schlaganfall.  
@@ -234,18 +214,4 @@ survival_rate()
 #- Unabhängig von der Medikation bleibt ein hoher Anteil der Patienten nach der Behandlung auf Unterstützung angewiesen.
 ```
 
-
 ## Diskussion
-
-
-
-
-
-
-
-
-
-
-
-
-

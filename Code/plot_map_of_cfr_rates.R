@@ -132,5 +132,3 @@ alternative_cfr_rates <- function(data = cleaned) {
     ) + 
     theme_minimal()
 }
-alternative_cfr_rates(cleaned)
-case_fatality_rate_per_country(cleaned)
