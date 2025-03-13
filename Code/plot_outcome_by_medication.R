@@ -15,14 +15,14 @@ plot_outcome_by_medication <- function(data = cleaned) {
   
   ggplot(therapy_summary) +
     geom_bar(stat = "identity", position = "dodge", aes(x = fct_reorder(treatment, prop, .desc = TRUE), y = prop, fill = OCCODE), width = 0.8, alpha = 0.85)+
-    labs(title = "Zustand der Patienten nach 6 Monaten je nach Therapie", x = "Medikation",
+    labs(title = "Einfluss der zweiwöchigen Therapie auf den\nPatientenzustand nach 6 Monaten", x = "Medikation",
          y = "Anteil", fill = "Ergebnis") +
     scale_fill_okabe_ito() +
     scale_x_discrete(labels = c("No Treatment" = "Keine Medikation")) +
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
     theme_minimal() + 
     theme(
-      plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
+      plot.title = element_text(face = "bold", size = 18, hjust = 0.5, lineheight = 1.2),
       axis.title = element_text(face = "bold", size = 15), 
       axis.text.x = element_text(size = 14),
       axis.text.y = element_text(size = 14),
