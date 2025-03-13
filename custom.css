@@ -29,15 +29,28 @@
   max-height: 100%;
 }
 
-.reveal .slides img.figure-img, .reveal .slides img {
+
+.reveal .slides img {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  max-height: 95vh !important;
+  max-height: 95vh !important; 
   width: auto !important;
   object-fit: contain !important;
 }
+
+
+.reveal .slides img.no-center {
+  position: absolute !important;
+  top: 35% !important; 
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  width: 90% !important;  
+}
+
+
 
 // Slide numbers to the bottom-right
 .slide-number, .reveal.has-logo .slide-number {
