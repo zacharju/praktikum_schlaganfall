@@ -47,7 +47,7 @@ cleaned <- clean_data(ist_data)
 
 **Schlaganfall**: Plötzliche Unterbrechung der Blutzufuhr zum Gehirn, welche zu einer Schädigung von Hirngewebe führt und neurologische Ausfälle zur Folge hat.
 
-![](Bilder/schlaganfall-arten.jpg){fig-align="center"}
+![](Bilder/schlaganfall-arten.jpg){.no-center}
 
 ## Agenda
 
