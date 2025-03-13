@@ -19,7 +19,6 @@ treatment_efficacy <- function(data = cleaned) {
     ) +
     scale_x_discrete(labels = c("No Treatment" = "Keine Medikation")) +
     scale_y_continuous(labels = scales :: percent, expand = expansion(mult = c(0, 0.05))) +
-    scale_fill_viridis_d(option = "plasma", alpha = 0.9) +
     theme_minimal() +
     theme(
       legend.position = "none",
@@ -27,5 +26,6 @@ treatment_efficacy <- function(data = cleaned) {
       axis.title = element_text(face = "bold", size =10), 
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank()
-      )
+      ) +
+    scale_fill_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"))
 }
