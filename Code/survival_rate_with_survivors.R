@@ -36,11 +36,11 @@ survival_rate_with_survivors <- function(data = cleaned) {
   # Plot erstellen
   ggplot(survival_data_complete, aes(x = FDEADD, y = survival_rate, colour = treatment)) +
     geom_line(size = 1) +
-    labs(x = "Tage seit Randomisierung", y = "Überlebensrate", title = "Überlebensrate nach Erstschlaganfall: Einfluss der Therapie") +
+    labs(x = "Tage seit Randomisierung", y = "Überlebensrate", title = "Überlebensrate nach Erstschlaganfall: Einfluss der Therapie", colour = "Medikation") +
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
     theme_minimal() +
     theme(
-      plot.title = element_text(face = "bold", size = 19, hjust = 0.5, lineheight = 1.2),
+      plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 15), 
       axis.text.x = element_text(size = 14),
       axis.text.y = element_text(size = 14),
@@ -49,5 +49,5 @@ survival_rate_with_survivors <- function(data = cleaned) {
       legend.text = element_text(size = 10),
       legend.title = element_text(size = 12)
     ) +
-    scale_color_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"))
+    scale_color_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"), labels = c("No Treatment" = "Keine Medikation"))
 }
