@@ -190,7 +190,7 @@ case_fatality_rate_per_country()
 ## 
 
 ```{r}
-survival_rate()
+survival_rate_with_survivors()
 ```
 
 ## Agenda
