@@ -2,7 +2,7 @@
 title: "Grundlegendes Praxisprojekt: Schlaganfälle"
 author: "Hanan Loulou, Nika Curcija, Julian Zacharias"
 date: 21 mar 2025
-institute: "Dr. Fabian Scheipl, Mona Niethammer, Johannes Piller, Helen Alber"
+institute: "Mona Niethammer, Johannes Piller, Helen Alber"
 format: 
   revealjs:
     css: custom.css
