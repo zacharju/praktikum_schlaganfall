@@ -45,10 +45,10 @@ case_fatality_per_country <- function(data = cleaned) {
   ggplot() + 
     geom_sf(data = countries_sf, aes(fill = cfr), color = "grey30") +
     scale_fill_stepsn(
-      colors = viridis::mako(100, direction = -1), 
+      colors = scico::scico(palette = "lajolla", 100, direction = -1), 
       na.value = "white", 
       breaks = quantiles,
-      labels = scales::percent(labels)
+      labels = scales::percent(quantiles)
     ) +
     coord_sf() +
     labs(

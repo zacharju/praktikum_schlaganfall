@@ -7,5 +7,7 @@ require("rnaturalearthdata")
 require("sf")
 require("viridis")
 require("ggokabeito")
+require("scico")
+require("forcats")
 
 data_path <- "./Daten/Rohdaten/data.CSV"
