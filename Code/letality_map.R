@@ -130,5 +130,9 @@ alternative_cf <- function(data = cleaned) {
       x = "Land",
       y = "Letalität"
     ) + 
-    theme_minimal()
+    theme_minimal() +
+    theme(
+      legend.title = element_text(size = 14),
+      legend.text = element_text(size = 13)
+    )
 }

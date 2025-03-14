@@ -3,10 +3,14 @@ barplot_sex_per_stroke_type <- function(data = cleaned) {
     filter(!is.na(stroke.type))
   ggplot(filtered, aes(x = stroke.type, fill = SEX)) +
     geom_bar(position = "fill", width = 0.7, alpha = 0.85) +
-    labs(title = "Vergleich von Geschlecht und Schlaganfalltyp",
+    labs(title = "Schlaganfalltyp unterteilt nach Geschlecht",
          x = "Schlaganfalltyp", y = "Anteil", fill = "Geschlecht") +
     coord_flip() +
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
+    geom_text(stat = "count", 
+              aes(label = sprintf("%.1f%%", ..count.. / tapply(..count.., ..x.., sum)[..x..] * 100)),
+              position = position_fill(vjust = 0.5),  
+              size = 4.2) +
     scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
     scale_fill_manual(
       values = c("M" = "#1054E7", "F" = "#E71010"),
@@ -19,6 +23,8 @@ barplot_sex_per_stroke_type <- function(data = cleaned) {
       axis.text.x = element_text(size = 15),
       axis.text.y = element_text(size = 14),
       panel.grid.major.y = element_blank(),  
-      panel.grid.minor.y = element_blank()
+      panel.grid.minor.y = element_blank(),
+      legend.text = element_text(size = 13),
+      legend.title = element_text(size = 14)
     )
 }

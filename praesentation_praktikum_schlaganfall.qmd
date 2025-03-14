@@ -86,7 +86,7 @@ cleaned <- clean_data(ist_data)
 
 3.  **Open**: Behandlungsart ist Forschern und Teilnehmern bekannt
 
-4.  **Blinded Endpoint**: Endpunkte können nicht von Forschern und Teilnehmern während der Studie beeinflusst werden
+4.  **Blinded Endpoint**: Endpunkte können während der Studie nicht beeinflusst werden
 :::
 
 ------------------------------------------------------------------------

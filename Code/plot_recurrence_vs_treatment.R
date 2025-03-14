@@ -35,7 +35,7 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
       axis.text.y = element_text(size = 14),
       panel.grid.major.y = element_blank(),  
       panel.grid.minor.y = element_blank(), 
-      legend.text = element_text(size = 10),
-      legend.title = element_text(size = 12)
+      legend.text = element_text(size = 13),
+      legend.title = element_text(size = 14)
     )
 }

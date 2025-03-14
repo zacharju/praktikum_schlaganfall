@@ -2,8 +2,8 @@ plot_outcome_by_medication <- function(data = cleaned) {
   therapy <- data |>
     mutate(OCCODE = ifelse(OCCODE == 0 | OCCODE == 9, NA, OCCODE)) |>
     mutate(OCCODE = recode(OCCODE,
-                           `1` = "Tot",
-                           `2` = "Abhängig",
+                           `1` = "Verstorben",
+                           `2` = "Pflegebedürftig",
                            `3` = "Nicht genesen",
                            `4` = "Genesen"))
   
@@ -28,7 +28,7 @@ plot_outcome_by_medication <- function(data = cleaned) {
       axis.text.y = element_text(size = 14),
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank(), 
-      legend.text = element_text(size = 10),
-      legend.title = element_text(size = 12)
+      legend.text = element_text(size = 13),
+      legend.title = element_text(size = 14)
     )
 }
