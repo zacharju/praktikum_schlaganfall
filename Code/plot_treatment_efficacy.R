@@ -9,7 +9,7 @@ treatment_efficacy <- function(data = cleaned) {
       proportion = second_stroke / total
     ) |>  
     ggplot(aes(x = treatment, y = proportion, fill = treatment)) +
-    geom_col(width = 0.7) +
+    geom_col(width = 0.7, fill = "steelblue", colour = "black") +
     geom_text(aes(label = sprintf("%.1f%%", proportion * 100)), 
               vjust = -0.5, size = 4.3) +
     labs(
@@ -27,8 +27,6 @@ treatment_efficacy <- function(data = cleaned) {
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank(),
       axis.text.x = element_text(size = 14),
-      axis.text.y = element_text(size = 14),
-      strip.text = element_text(size = 14)
-      ) +
-    scale_fill_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"))
+      axis.text.y = element_text(size = 14)
+    )
 }

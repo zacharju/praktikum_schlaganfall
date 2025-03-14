@@ -34,20 +34,28 @@ survival_rate_with_survivors <- function(data = cleaned) {
     arrange(treatment, FDEADD)  # Sicherstellen, dass alles korrekt sortiert ist
   
   # Plot erstellen
-  ggplot(survival_data_complete, aes(x = FDEADD, y = survival_rate, colour = treatment)) +
-    geom_line(size = 1) +
-    labs(x = "Tage seit Randomisierung", y = "Überlebensrate", title = "Überlebensrate nach Erstschlaganfall: Einfluss der Therapie", colour = "Medikation") +
+  ggplot(survival_data_complete, aes(x = FDEADD, y = survival_rate, 
+                                     color = treatment, linetype = treatment)) +
+    geom_line(size = 0.7) +
+    labs(x = "Tage seit Randomisierung", 
+         y = "Überlebensrate", 
+         title = "Überlebensrate nach Erstschlaganfall: Einfluss der Therapie", 
+         color = "Medikation", linetype = "Medikation") +  
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
+    scale_color_manual(values = rep("steelblue", length(unique(survival_data_complete$treatment))),
+                       labels = c("No Treatment" = "Keine Medikation")) +  
+    scale_linetype_manual(values = c("dotdash", "dashed", "dotted", "solid"),
+                          labels = c("No Treatment" = "Keine Medikation")) +  
     theme_minimal() +
     theme(
+      legend.position = "top",
       plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 15), 
       axis.text.x = element_text(size = 14),
       axis.text.y = element_text(size = 14),
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank(), 
-      legend.text = element_text(size = 10),
-      legend.title = element_text(size = 12)
-    ) +
-    scale_color_manual(values = c("#6c00a8", "#c7427c", "#f78212", "#fccd25"), labels = c("No Treatment" = "Keine Medikation"))
+      legend.text = element_text(size = 12),
+      legend.title = element_text(size = 14)
+    )
 }
