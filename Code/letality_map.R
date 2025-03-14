@@ -48,7 +48,7 @@ case_fatality_per_country <- function(data = cleaned) {
       colors = scico::scico(palette = "lajolla", 100, direction = -1), 
       na.value = "white", 
       breaks = quantiles,
-      labels = scales::percent(quantiles)
+      labels = scales::percent(labels)
     ) +
     coord_sf() +
     labs(
