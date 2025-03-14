@@ -5,7 +5,7 @@ survival_rate_with_survivors <- function(data = cleaned) {
     filter(!is.na(stroke.type)) |> 
     group_by(treatment) |> 
     mutate(treatment_count = n()) |>  
-    filter(FDEADC == 2 | FDEADC == 3) |> 
+    #filter(FDEADC == 2 | FDEADC == 3) |> 
     filter(!is.na(FDEADD)) |> 
     mutate(FDEADD_count = ave(FDEADD, FDEADD, FUN = length)) |> 
     select(treatment, FDEADD, FDEADD_count, treatment_count) |> 
@@ -55,7 +55,7 @@ survival_rate_with_survivors <- function(data = cleaned) {
       axis.text.y = element_text(size = 14),
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank(), 
-      legend.text = element_text(size = 12),
+      legend.text = element_text(size = 13),
       legend.title = element_text(size = 14)
     )
 }
