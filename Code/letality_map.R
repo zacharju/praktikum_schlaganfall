@@ -37,8 +37,8 @@ patients_per_country <- function(data = cleaned) {
     left_join(patients_per_country, by = c("name_long" = "COUNTRY"))
   
   # Setting intervals
-  breaks <- c(0, 100, 500, 1000, 2000, 5000)
-  
+  breaks <- c(2, 10, 50, 200, 1000, 6000) #Daten rechtsschief
+
   # Extracting colors
   lajolla_colors <- scico::scico(palette = "lajolla", n = 6, direction = -1)[1:6]
   
