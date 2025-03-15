@@ -217,6 +217,8 @@ case_fatality_per_country <- function(data = cleaned) {
     )
 }
 
+################################################################################################
+
 alternative_cf <- function(data = cleaned) {
   country_lookup <- tibble(
     COUNTRY = c("Albania", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", 
