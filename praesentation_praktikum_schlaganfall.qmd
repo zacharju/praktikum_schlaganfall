@@ -207,11 +207,28 @@ survival_rate_with_survivors()
 
 ## Zusammenfassung
 
-```{r}
-#- Patienten, die mit **Aspirin** behandelt wurden, hatten ein geringeres Risiko für einen zweiten Schlaganfall.  
-#- Im Gegensatz dazu trat bei **Heparin**-Patienten häufiger ein erneuter Schlaganfall auf.  
-#- Der Datensatz zeigt eine **auffällige Altersverteilung**, mit überwiegend älteren Patienten.  
-#- Unabhängig von der Medikation bleibt ein hoher Anteil der Patienten nach der Behandlung auf Unterstützung angewiesen.
-```
+::: incremental
+
+- Häufigster Schlaganfalltyp: Ischämisch
+- Auffällige Altersverteilung: überwiegend älteren Patienten
+- Geringer Anteil an wiederkehrenden Schlaganfällen
+- Behandlung mit Aspirin: geringerer Anteil an wiederkehrenden Schlaganfällen, höhere Überlebensrate
+- Hoher Anteil der Patienten nach der Behandlung pflegebedürftig
+
+:::
 
 ## Diskussion
+
+::: incremental
+
+- Keine genaue Trennung zwischen Pilotstudie und tatsächliche Studie
+- Mögliche Verfälschung der Ergebnisse durch Einnahme von Medikamenten vor Randomisierung 
+- Unsicherheit bei Diagnose wegen Patienten mit fehlendem CT
+- Nicht-repräsenative Verteilung der Schlaganfalltypen aufgrund der Auswahlkriterien
+
+```{r}
+# Länderbezogene Verzerrung? 
+```
+
+
+:::
