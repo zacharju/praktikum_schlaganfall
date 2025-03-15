@@ -1,7 +1,7 @@
 ---
 title: "Grundlegendes Praxisprojekt: Schlaganfälle"
 author: "Hanan Loulou, Nika Curcija, Julian Zacharias"
-date: 21 mar 2025
+date: 20 mar 2025
 institute: "Mona Niethammer, Johannes Piller, Helen Alber"
 format: 
   revealjs:
@@ -67,11 +67,11 @@ cleaned <- clean_data(ist_data)
 
 ::: incremental
 -   19.435 Patienten aus 36 Ländern
--   Längsschnittdaten
 -   112 Variablen
 -   Zeitraum: 1991-1996
--   Multizentrische Studie: 467 Krankenhäuser
+-   Längsschnittdaten
 -   Beobachtungszeitraum: 6 Monate
+-   Multizentrische Studie: 467 Krankenhäuser
 -   Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
 :::
 

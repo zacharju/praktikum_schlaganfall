@@ -4,7 +4,7 @@ plot_outcome_by_medication <- function(data = cleaned) {
     mutate(OCCODE = recode(OCCODE,
                            `1` = "Verstorben",
                            `2` = "Pflegebedürftig",
-                           `3` = "Nicht genesen",
+                           `3` = "Nicht genesen aber unabhängig",
                            `4` = "Genesen"))
   
   therapy_summary <- therapy |> 
@@ -29,6 +29,7 @@ plot_outcome_by_medication <- function(data = cleaned) {
       panel.grid.major.x = element_blank(),  
       panel.grid.minor.x = element_blank(), 
       legend.text = element_text(size = 13),
-      legend.title = element_text(size = 14)
+      legend.title = element_text(size = 14),
+      legend.position = "top"
     )
 }
