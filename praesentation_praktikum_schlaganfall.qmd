@@ -157,6 +157,13 @@ plot_recurrence_by_age()
 plot_recurrence_by_type()
 ```
 
+
+## 
+
+```{r}
+plot_recurrence_by_sex()
+```
+
 ## 
 
 ```{r}
