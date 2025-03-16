@@ -46,13 +46,11 @@ patients_per_country_new <- function(data = cleaned) {
   patient_data_per_country <- cleaned |>
     group_by(COUNTRY) |>
     summarise(total_patients = n()) |>
-    arrange(desc(total_patients)) |>
-    print(n = 36)
+    arrange(desc(total_patients))
   
   # Left Join with midpoints
   patient_data_sf <- patient_data_per_country |>
-    left_join(middle, by = c("COUNTRY" = "name")) |>
-    print(n=36)
+    left_join(middle, by = c("COUNTRY" = "name"))
   
   # Setting the intervals for patient size
   breaks <- c(2, 10, 50, 200, 1000, 6000) # Customize this based on the patient data
