@@ -148,12 +148,6 @@ plot_recurrence_overall()
 ## 
 
 ```{r}
-plot_recurrence_by_age()
-```
-
-## 
-
-```{r}
 plot_recurrence_by_type()
 ```
 

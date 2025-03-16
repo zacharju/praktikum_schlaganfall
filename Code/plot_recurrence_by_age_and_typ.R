@@ -6,7 +6,7 @@ plot_recurrence_by_age_and_typ <- function(data = cleaned) {
   
   ggplot(filtered, aes(x = recurring.stroke.type, y = AGE, fill = recurring.stroke.type)) +
     geom_boxplot(width = 0.6, alpha = 0.85) +
-    labs(title = "Alter nach Geschlecht und Typ des wiederkehrenden Schlaganfalls",
+    labs(title = "Alter nach Typ des wiederkehrenden Schlaganfalls",
          x = "Schlaganfalltyp",
          y = "Alter der Patienten") + 
     scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
