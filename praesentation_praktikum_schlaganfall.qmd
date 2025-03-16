@@ -66,11 +66,11 @@ cleaned <- clean_data(ist_data)
 **International Stroke Trial Dataset**
 
 ::: incremental
--   19.435 Patienten aus 36 Ländern
--   112 Variablen
 -   Zeitraum: 1991-1996
 -   Längsschnittdaten
 -   Beobachtungszeitraum: 6 Monate
+-   19.435 Patienten aus 36 Ländern
+-   112 Variablen
 -   Multizentrische Studie: 467 Krankenhäuser
 -   Ziel: Untersuchung der Wirksamkeit von Aspirin und Heparin zur Behandlung von Schlaganfällen
 :::
@@ -191,7 +191,7 @@ plot_outcome_by_medication()
 ## 
 
 ```{r}
-patients_per_country_new()
+patients_per_country()
 ```
 
 ## 
