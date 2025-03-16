@@ -15,13 +15,11 @@ plot_recurrence_by_age_and_typ <- function(data = cleaned) {
       breaks = seq(0, 100, by = 10),  
       labels = seq(0, 100, by = 10)
     ) +
-    facet_wrap(~ SEX, labeller = as_labeller(c("M" = "Männlich", "F" = "Weiblich"))) +
     theme_minimal() + 
     theme(
       legend.position = "none",
       plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 15), 
-      strip.text = element_text(size = 14),
       axis.text.x = element_text(size = 14),
       axis.text.y = element_text(size = 14),
       panel.grid.major.x = element_blank(),  
