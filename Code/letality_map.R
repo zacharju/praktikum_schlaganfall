@@ -1,3 +1,99 @@
+patients_per_country_2 <- function(data = cleaned) {
+  country_lookup <- tibble(
+    COUNTRY = c("Albania", "Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", "Canada", "Chile", 
+                "Czech Republic", "Denmark", "Ireland", "Finland", "France", "Georgia", "Germany", 
+                "Greece", "Hong Kong", "Hungary", "India", "Indonesia", "Israel", "Italy", "Japan", 
+                "Latvia", "Malaysia", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", 
+                "Romania", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", 
+                "Sri Lanka", "Sweden", "Switzerland", "Thailand", "Turkey", "United Kingdom", "United States"),
+    CNTRYNUM = c(43, 29, 1, 2, 3, 42, 4, 5, 6, 7, 8, 9, 10, 11, 32, 12, 31, 30, 36, 37, 41, 
+                 13, 14, 38, 39, 40, 15, 16, 17, 18, 19, 33, 34, 44, 20, 21, 22, 23, 24, 25, 26, 35, 27, 28)
+  )
+  
+  # Mapping country code to country name
+  cleaned$COUNTRY <- vapply(cleaned$CNTRYNUM, function(x) {
+    i <- which(country_lookup$CNTRYNUM == x)
+    if (length(i) == 1) {
+      return(country_lookup$COUNTRY[i])
+    } else {
+      return(NA_character_)
+    }
+  }, character(1))
+  
+  # Load world map data
+  world <- ne_countries(scale = 110, type = "countries", returnclass = "sf")
+  
+  # Filter countries based on the cleaned dataset
+  countries_sf <- world[world$name_long %in% unique(cleaned$COUNTRY), ]
+  
+  # Calculate centroids (midpoints) for each country
+  middle <- data.frame(
+    name = countries_sf$name_long,
+    lon = st_coordinates(st_centroid(countries_sf))[ ,1],
+    lat = st_coordinates(st_centroid(countries_sf))[ ,2]
+  )
+  
+  # Manually add coordinates for Hong Kong and Singapore
+  manual_coords <- tibble(
+    name = c("Hong Kong", "Singapore"),
+    lon = c(114.1694, 103.8198),  # Longitudes
+    lat = c(22.3193, 1.3521)       # Latitudes
+  )
+  
+  middle <- bind_rows(middle, manual_coords)
+  
+  # Create table with patient data (total cases)
+  patient_data_per_country <- cleaned |>
+    group_by(COUNTRY) |>
+    summarise(total_patients = n()) |>
+    arrange(desc(total_patients)) |>
+    print(n = 36)
+  
+  # Left Join with midpoints
+  patient_data_sf <- patient_data_per_country |>
+    left_join(middle, by = c("COUNTRY" = "name")) |>
+    print(n=36)
+  
+  # Setting the intervals for patient size
+  breaks <- c(2, 10, 50, 200, 1000, 6000) # Customize this based on the patient data
+  
+  # Extracting colors from lajolla color palette using the scico package
+  lajolla_colors <- scico::scico(palette = "lajolla", n = 6, direction = -1)[1:6]  # 6 colors to match the breaks
+  
+  # Plot with dot size and color based on total number of patients
+  ggplot() + 
+    geom_sf(data = world, colour = "grey30", fill = "antiquewhite") + 
+    geom_point(data = patient_data_sf, 
+               mapping = aes(x = lon, y = lat, size = total_patients, color = total_patients), 
+               alpha = 0.8) + 
+    coord_sf() +
+    labs(x = "Längengrad", y = "Breitengrad", size = "Anzahl der Patienten", 
+         title = "Absolute Häufigkeiten der Schlaganfallpatienten pro Land") +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(-180, 180, 40)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(-90, 90, 20)) +
+    # Define size scale
+    scale_size_continuous(
+      range = c(2, 7),  # Define the min and max size for the points
+      breaks = breaks,  # Set breakpoints for different categories
+      labels = c("(0,2)", "(3,10)", "(11,50)", "(51,200)", "(201,1000)", "(>1000)"), 
+      guide = guide_legend(reverse = TRUE)
+    ) +  
+    # Add the color scale (fill based on total patients)
+    scale_color_stepsn(
+      colors = lajolla_colors,
+      na.value = "white",
+      breaks = breaks,  # Ensure breaks are the same as the size breaks
+      limits = c(0, 7000),
+      show.limits = TRUE
+    ) +
+    theme_bw() +
+    theme(
+      panel.grid.major = element_line(color = gray(.5), linetype = "dashed", linewidth = 0.5),
+      plot.title = element_text(face = "bold", size = 15)
+    )
+}
+
+
 patients_per_country <- function(data = cleaned) {
   
   # Creating a tibble that maps country and country code
