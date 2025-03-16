@@ -4,31 +4,30 @@ plot_recurrence_by_type <- function(data = cleaned) {
     filter(!is.na(stroke.type)) |>
     filter(!is.na(recurring.stroke.type))
   
-  ggplot(filtered, aes(x = recurring.stroke.type, fill = recurring.stroke.type)) +
-    geom_bar(position = "dodge", width = 0.6, alpha = 0.85) +
+  ggplot(filtered, aes(x = recurring.stroke.type, fill = SEX)) +
+    geom_bar(position = "fill", width = 0.7, alpha = 0.85) +
+    labs(title = "Wiederkehrende Schlaganfälle nach Geschlecht",
+         x = "Schlaganfalltyp", y = "Anteil", fill = "Geschlecht") +
+    coord_flip() +
+    scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) +
     geom_text(stat = "count", 
-              aes(label = sprintf("%d (%.1f%%)", ..count.., ..count../sum(..count..)*100)), 
-              vjust = -0.5, size = 4.1) +  
-    labs(title = "Häufigkeit wiederkehrender Schlaganfälle nach Typ und Geschlecht",
-         x = "Schlaganfalltyp",
-         y = "Anzahl der Patienten") +
+              aes(label = sprintf("%.1f%%", ..count.. / tapply(..count.., ..x.., sum)[..x..] * 100)),
+              position = position_fill(vjust = 0.5),  
+              size = 4.2) +
     scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
-    scale_fill_manual(values = c("#472d7b", "#218f8d", "#90d743")) +
-    scale_y_continuous(
-      breaks = seq(0, 225, by = 25),
-      labels = seq(0, 225, by = 25), 
-      expand = expansion(mult = c(0, 0.05))
+    scale_fill_manual(
+      values = c("M" = "#1054E7", "F" = "#E71010"),
+      labels = c("M" = "Männlich", "F" = "Weiblich")
     ) +
-    facet_wrap(~ SEX, labeller = as_labeller(c("M" = "Männlich", "F" = "Weiblich"))) +
     theme_minimal() +
     theme(
-      legend.position = "none",
       plot.title = element_text(face = "bold", size = 19, hjust = 0.5),
       axis.title = element_text(face = "bold", size = 15), 
-      strip.text = element_text(size = 14),
-      axis.text.x = element_text(size = 14),
+      axis.text.x = element_text(size = 15),
       axis.text.y = element_text(size = 14),
-      panel.grid.major.x = element_blank(),  
-      panel.grid.minor.x = element_blank()
+      panel.grid.major.y = element_blank(),  
+      panel.grid.minor.y = element_blank(),
+      legend.text = element_text(size = 13),
+      legend.title = element_text(size = 14)
     )
 }
