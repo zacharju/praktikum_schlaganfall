@@ -191,7 +191,7 @@ plot_outcome_by_medication()
 ## 
 
 ```{r}
-case_fatality_per_country()
+patients_per_country_new()
 ```
 
 ## 
