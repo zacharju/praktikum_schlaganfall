@@ -223,10 +223,10 @@ survival_rate_with_survivors()
 
 ::: incremental
 
-- Keine genaue Trennung zwischen Pilotstudie und tatsächliche Studie
+- Keine genaue Trennung zwischen Pilotstudie und tatsächlicher Studie
 - Mögliche Verfälschung der Ergebnisse durch Einnahme von Medikamenten vor Randomisierung 
 - Unsicherheit bei Diagnose wegen Patienten mit fehlendem CT
-- Nicht-repräsenative Verteilung der Schlaganfalltypen aufgrund der Auswahlkriterien
+- Nicht-repräsentative Verteilung der Schlaganfalltypen aufgrund der Auswahlkriterien
 
 ```{r}
 # Länderbezogene Verzerrung? 
