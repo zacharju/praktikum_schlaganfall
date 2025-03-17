@@ -253,8 +253,13 @@ patients_per_country <- function(data = cleaned) {
     theme_bw() +
     theme(
       panel.grid.major = element_line(color = gray(.5), linetype = "dashed", linewidth = 0.5),
-      plot.title = element_text(face = "bold", size = 15, hjust = 0.5)
-    )
+      plot.title = element_text(face = "bold", size = 19, hjust = 0.5, lineheight = 1.2),
+      axis.title = element_text(face = "bold", size = 15), 
+      axis.text.x = element_text(size = 14),
+      axis.text.y = element_text(size = 14),
+      legend.text = element_text(size = 10),
+      legend.title = element_text(size = 12)
+  )
 }
 
 ################################################################################################
