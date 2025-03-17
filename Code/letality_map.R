@@ -250,6 +250,8 @@ patients_per_country <- function(data = cleaned) {
       fill = "Anzahl", 
       title = "Absolute Häufigkeiten der Schlaganfallpatienten nach Land"
     ) +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(-180, 180, 40)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(-90, 90, 20)) +
     theme_bw() +
     theme(
       panel.grid.major = element_line(color = gray(.5), linetype = "dashed", linewidth = 0.5),
