@@ -9,7 +9,7 @@ clean_data <- function(data) {
     mutate(stroke.type = str_replace_all(stroke.type, c(
       "DDIAGISC" = "Ischaemic Stroke",
       "DDIAGHA" = "Haemorrhagic Stroke",
-      "DDIAGUN" = "Unknown Stroke",
+      "DDIAGUN" = "Indeterminate Stroke",
       "DNOSTRK" = NA_character_
     )))
   cleaned <- cleaned |>

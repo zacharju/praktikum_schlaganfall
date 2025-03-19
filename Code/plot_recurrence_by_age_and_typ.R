@@ -9,7 +9,7 @@ plot_recurrence_by_age_and_typ <- function(data = cleaned) {
     labs(title = "Alter nach Typ des wiederkehrenden Schlaganfalls",
          x = "Schlaganfalltyp",
          y = "Alter der Patienten") + 
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
     scale_fill_manual(values = c("#472d7b", "#218f8d", "#90d743")) +
     scale_y_continuous(
       breaks = seq(0, 100, by = 10),  

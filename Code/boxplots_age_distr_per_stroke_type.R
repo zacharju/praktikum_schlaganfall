@@ -1,15 +1,19 @@
 boxplots_age_distr_per_stroke_type <- function(data = cleaned) {
   filtered <- data |>
     filter(!is.na(stroke.type))
-  ggplot(filtered, aes(x = stroke.type, y = AGE, fill = stroke.type)) +
+  ggplot(filtered, aes(x = factor(stroke.type, levels = c("Haemorrhagic Stroke", "Ischaemic Stroke", "Indeterminate Stroke")), y = AGE, fill = stroke.type)) +
     geom_boxplot(width = 0.7, alpha = 0.85) +
     labs(title = "Alter nach Typ des Schlaganfalls", x = "Schlaganfalltyp", y = "Alter") +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Indeterminate")) +
     scale_y_continuous(
-      breaks = seq(0, 100, by = 5),  
-      labels = seq(0, 100, by = 5)
+      breaks = seq(0, 100, by = 10),  
+      labels = seq(0, 100, by = 10)
     ) +
-    scale_fill_manual(values = c("#472d7b", "#218f8d", "#90d743")) +
+    scale_fill_manual(
+      values = c("Haemorrhagic Stroke" = "#472d7b", 
+                 "Ischaemic Stroke" = "#218f8d", 
+                 "Indeterminate Stroke" = "#d8e219")
+    ) +
     theme_minimal() + 
     theme(
       legend.position = "none",

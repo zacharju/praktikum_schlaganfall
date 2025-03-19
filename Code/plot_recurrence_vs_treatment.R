@@ -22,7 +22,7 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
       values = c("#472d7b", "#218f8d", "#90d743"),
       labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", 
                  "Ischaemic Stroke" = "Ischämisch", 
-                 "Unknown Stroke" = "Unbestimmt")
+                 "Unknown Stroke" = "Unbekannt")
     ) +
     scale_x_discrete(labels = c("No Treatment" = "Keine Medikation")) +
     scale_y_continuous(labels = scales::percent, expand = expansion(mult = c(0, 0.05))) + 

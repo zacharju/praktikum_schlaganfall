@@ -118,7 +118,7 @@ barplot_stroke_types()
 ## 
 
 ::: {style="text-align: center; display: flex; justify-content: center; align-items: center; height: 90vh;"}
-**Leitfrage 2: Unterscheiden sich die Schlaganfallkategorien hinsichtlich Alter, Geschlecht und anderen ausgewählten Variablen?**
+**Leitfrage 2: Unterscheiden sich die Schlaganfallkategorien hinsichtlich Alter und Geschlecht?**
 :::
 
 ## 
@@ -225,12 +225,8 @@ survival_rate_with_survivors()
 
 - Keine genaue Trennung zwischen Pilotstudie und tatsächlicher Studie
 - Mögliche Verfälschung der Ergebnisse durch Einnahme von Medikamenten vor Randomisierung 
-- Unsicherheit bei Diagnose wegen Patienten mit fehlendem CT
+- Unsicherheit bei Diagnose wegen Patienten ohne CT
 - Nicht-repräsentative Verteilung der Schlaganfalltypen aufgrund der Auswahlkriterien
-
-```{r}
-# Länderbezogene Verzerrung? 
-```
-
+- Länderbezogene Verzerrung durch über 50 % der Daten aus wenigen Ländern
 
 :::

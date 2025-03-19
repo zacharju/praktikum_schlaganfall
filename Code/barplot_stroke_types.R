@@ -1,7 +1,7 @@
 barplot_stroke_types <- function(data = cleaned) {
   filtered <- data |>
     filter(!is.na(stroke.type))
-  ggplot(filtered, aes(x = stroke.type, fill = stroke.type)) +
+  ggplot(filtered, aes(x = factor(stroke.type, levels = c("Haemorrhagic Stroke", "Ischaemic Stroke", "Indeterminate Stroke")), fill = stroke.type)) +
     geom_bar(width = 0.7, alpha = 0.85) +
     geom_text(stat = "count", 
               aes(label = sprintf("%d (%.1f%%)", ..count.., ..count../sum(..count..)*100)), 
@@ -9,13 +9,17 @@ barplot_stroke_types <- function(data = cleaned) {
     labs(title = "Häufigkeit der Schlaganfalltypen",
          x = "Schlaganfalltyp",
          y = "Anzahl der Patienten") +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Indeterminate")) +
     scale_y_continuous(
       breaks = seq(0, 20000, by = 2500),  
       labels = seq(0, 20000, by = 2500), 
       expand = expansion(mult = c(0, 0.05))
     ) +
-    scale_fill_manual(values = c("#472d7b", "#218f8d", "#90d743")) +
+    scale_fill_manual(
+      values = c("Haemorrhagic Stroke" = "#472d7b", 
+                 "Ischaemic Stroke" = "#218f8d", 
+                 "Indeterminate Stroke" = "#d8e219")
+    ) +
     theme_minimal() + 
     theme(
       legend.position = "none",

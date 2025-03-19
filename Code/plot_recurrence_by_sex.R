@@ -14,7 +14,7 @@ plot_recurrence_by_sex <- function(data = cleaned) {
               aes(label = sprintf("%.1f%%", ..count.. / tapply(..count.., ..x.., sum)[..x..] * 100)),
               position = position_fill(vjust = 0.5),  
               size = 4.3) +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbekannt")) +
     scale_fill_manual(
       values = c("M" = "#1054E7", "F" = "#E71010"),
       labels = c("M" = "Männlich", "F" = "Weiblich")

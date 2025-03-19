@@ -11,7 +11,7 @@ barplot_sex_per_stroke_type <- function(data = cleaned) {
               aes(label = sprintf("%.1f%%", ..count.. / tapply(..count.., ..x.., sum)[..x..] * 100)),
               position = position_fill(vjust = 0.5),  
               size = 4.2) +
-    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Unknown Stroke" = "Unbestimmt")) +
+    scale_x_discrete(labels = c("Haemorrhagic Stroke" = "Hämorrhagisch", "Ischaemic Stroke" = "Ischämisch", "Indeterminate Stroke" = "Indeterminate")) +
     scale_fill_manual(
       values = c("M" = "#1054E7", "F" = "#E71010"),
       labels = c("M" = "Männlich", "F" = "Weiblich")
