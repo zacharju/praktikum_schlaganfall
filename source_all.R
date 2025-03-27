@@ -1,7 +1,6 @@
-
 source("settings.R")
 lapply(list.files(
-  "Code", 
+  "Code",
   pattern = "\\.R$",
   ignore.case = TRUE,
   full.names = TRUE,
