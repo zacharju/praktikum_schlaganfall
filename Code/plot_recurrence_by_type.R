@@ -5,12 +5,12 @@ plot_recurrence_by_type <- function(data = cleaned) {
     filter(!is.na(recurring.stroke.type))
 
   ggplot(filtered, aes(x = recurring.stroke.type, fill = recurring.stroke.type)
-         ) +
+  ) +
     geom_bar(position = "dodge", width = 0.5, alpha = 0.85) +
     geom_text(
       stat = "count",
-      aes(label = sprintf("%d (%.1f%%)", ..count..,
-                          ..count.. / sum(..count..) * 100)),
+      aes(label = sprintf("%d (%.1f%%)", after_stat(count),
+                          after_stat(count) / sum(after_stat(count)) * 100)),
       vjust = -0.5, size = 4.3
     ) +
     labs(

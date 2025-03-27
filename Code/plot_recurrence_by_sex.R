@@ -15,8 +15,10 @@ plot_recurrence_by_sex <- function(data = cleaned) {
                        expand = expansion(mult = c(0, 0.05))) +
     geom_text(
       stat = "count",
-      aes(label = sprintf("%.1f%%", ..count.. /
-                            tapply(..count.., ..x.., sum)[..x..] * 100)),
+      aes(label = sprintf("%.1f%%", after_stat(count) /
+                            tapply(after_stat(count),
+                                   after_stat(x), sum)[after_stat(x)]
+                          * 100)),
       position = position_fill(vjust = 0.5),
       size = 4.3
     ) +

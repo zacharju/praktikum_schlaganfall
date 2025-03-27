@@ -17,7 +17,7 @@ utils::globalVariables(c(
   "DDIAGISC", "DDIAGHA", "DDIAGUN", "DNOSTRK",
   "DRSISC", "DRSH", "DRSUNK", "DRSISCD", "DRSHD", "DRSUNKD",
   "DASP14", "DLH14", "DMH14", "DSCH", "DIVH", "AGE", "SEX",
-  "value", "stroke.type", "..x..", "..count..", "FDEAD",
+  "value", "stroke.type", "x", "count", "FDEAD",
   "COUNTRY", "total_patients", "deaths", "total_cases",
   "cfr_rate", "COUNTRY_GERMAN", "OCCODE", "treatment",
   "prop", "recurring.stroke.type", "recurring", "total",

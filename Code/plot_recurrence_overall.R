@@ -7,8 +7,8 @@ plot_recurrence_overall <- function(data = cleaned) {
     geom_bar(width = 0.6, alpha = 0.85, fill = "grey", colour = "black") +
     geom_text(
       stat = "count",
-      aes(label = sprintf("%d (%.1f%%)", ..count..,
-                          ..count.. / sum(..count..) * 100)),
+      aes(label = sprintf("%d (%.1f%%)", after_stat(count),
+                          after_stat(count) / sum(after_stat(count)) * 100)),
       vjust = -0.5, size = 4.3
     ) +
     labs(

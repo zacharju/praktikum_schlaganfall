@@ -8,9 +8,9 @@ plot_recurrence_vs_treatment <- function(data = cleaned) {
   ggplot(filtered, aes(x = treatment, fill = recurring.stroke.type)) +
     geom_bar(position = "fill", width = 0.8, alpha = 0.85) +
     geom_text(stat = "count",
-              aes(label = sprintf("%.1f%%", ..count.. /
-                                    tapply(..count.., ..x.., sum)
-                                    [..x..] * 100)),
+              aes(label = sprintf("%.1f%%", after_stat(count) /
+                                    ave(after_stat(count), after_stat(x),
+                                        FUN = sum) * 100)),
               position = position_fill(vjust = 0.5),
               size = 4.2) +
     labs(

@@ -15,8 +15,8 @@ barplot_stroke_types <- function(data = cleaned) {
     geom_text(
       stat = "count",
       aes(label = sprintf(
-        "%d (%.1f%%)", ..count..,
-        ..count.. / sum(..count..) * 100
+        "%d (%.1f%%)", after_stat(count),
+        after_stat(count) / sum(after_stat(count)) * 100
         # Display absolute values + percentage over the bars
       )),
       vjust = -0.5, size = 4.3
