@@ -6,10 +6,10 @@ clean_data <- function(data) {
       names_to = "stroke.type",
       values_to = "value"
     ) |>
-    mutate(value = na_if(.data$value, "")) |>
-    filter(.data$value == "Y") |>
-    select(-.data$value) |>
-    mutate(stroke.type = str_replace_all(.data$stroke.type, c(
+    mutate(value = na_if(value, "")) |>
+    filter(value == "Y") |>
+    select(-value) |>
+    mutate(stroke.type = str_replace_all(stroke.type, c(
       "DDIAGISC" = "Ischaemic Stroke",
       "DDIAGHA" = "Haemorrhagic Stroke",
       "DDIAGUN" = "Indeterminate Stroke",
