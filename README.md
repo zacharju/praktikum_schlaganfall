@@ -9,8 +9,7 @@ To ensure smooth execution of the code, please read these instructions before ru
 
 ### Software Requirements
 
-We use **R Version 4.3.1**. Some of our packages require the latest version of R.\
-If you are using an older version, you may encounter errors when installing dependencies.
+This project was developed using **R Version 4.3.1**. Some of the required packages may not be compatible with older versions of R, and using an earlier version may result in errors.
 
 For a complete list of required packages, refer to the **`settings.R`** file in the root directory.
 
